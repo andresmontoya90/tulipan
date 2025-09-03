@@ -537,14 +537,14 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.8);
-  color: #8B4513;
+  color: #824316;
   font-size: 2rem;
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
-  transition: background 0.3s ease;
+  transition: background 0.9s ease;
 }
 
 .prev:hover, .next:hover {
@@ -556,7 +556,7 @@
 }
 
 .next {
-  right: 15px;
+  right: 20px;
 }
 
 /* Animación de entrada */
@@ -566,13 +566,13 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 798px) {
   .slide img {
     height: 250px;
   }
 
   .prev, .next {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 0.4rem 0.8rem;
   }
 }
