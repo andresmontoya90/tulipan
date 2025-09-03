@@ -1,0 +1,91 @@
+-- Crear la base de datos
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'TULIPAN')
+BEGIN
+    CREATE DATABASE TULIPAN;
+END
+GO
+
+USE TULIPAN;
+GO
+
+-- Tabla de empleados (para login)
+CREATE TABLE empleados (
+    id_empleado INT IDENTITY(1,1) PRIMARY KEY,
+    nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
+    nombre_completo VARCHAR(100),
+    email VARCHAR(100), -- agregado directamente
+    contrasena_hash VARCHAR(255) NOT NULL,
+    rol VARCHAR(20) NOT NULL CHECK (rol IN ('admin', 'vendedor')) DEFAULT 'vendedor',
+    creado_en DATETIME DEFAULT GETDATE()
+);
+GO
+
+-- Tabla de eventos (ocasiones)
+CREATE TABLE eventos (
+    id_evento INT IDENTITY(1,1) PRIMARY KEY,
+    tipo_ocasion VARCHAR(50) UNIQUE NOT NULL,
+    descripcion TEXT
+);
+GO
+
+-- Datos base para eventos
+INSERT INTO eventos (tipo_ocasion, descripcion) VALUES
+('cumpleaños', 'Celebración de cumpleaños personal o infantil'),
+('boda', 'Eventos matrimoniales'),
+('aniversario', 'Conmemoraciones especiales'),
+('bautizo', 'Fiestas de bautizo y ceremonias religiosas'),
+('graduación', 'Actos académicos de grado'),
+('corporativo', 'Eventos empresariales o de oficina'),
+('otro', 'Otro tipo de evento personalizado');
+GO
+
+-- Tabla de productos
+CREATE TABLE productos (
+    id_producto INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10,2) NOT NULL,
+    categoria VARCHAR(50),
+    stock INT DEFAULT 0,
+    disponible BIT DEFAULT 1,
+    imagen_url VARCHAR(255),
+    creado_en DATETIME DEFAULT GETDATE()
+);
+GO
+
+-- Tabla de clientes
+CREATE TABLE clientes (
+    id_cliente INT IDENTITY(1,1) PRIMARY KEY,
+    nombre_completo VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefono VARCHAR(30),
+    ciudad VARCHAR(50),
+    creado_en DATETIME DEFAULT GETDATE()
+);
+GO
+
+-- Tabla de pedidos
+CREATE TABLE pedidos (
+    id_pedido INT IDENTITY(1,1) PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_evento INT,
+    fecha_pedido DATETIME DEFAULT GETDATE(),
+    fecha_evento DATE,
+    mensaje_adicional TEXT,
+    recibe_boletines BIT DEFAULT 0,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE,
+    FOREIGN KEY (id_evento) REFERENCES eventos(id_evento)
+);
+GO
+
+-- Detalle del pedido
+CREATE TABLE detalle_pedido (
+    id_detalle INT IDENTITY(1,1) PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL DEFAULT 1,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+GO

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Login | Tulipán</title>
+    <link rel="stylesheet" href="assets/css/estilos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="/assets/js/menu.js"></script>
+    <style>
+        .login-container {
+            width: 380px;
+            background-color: rgb(251, 249, 247);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(66, 53, 53, 0.1);
+            padding: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .login-header {
+            margin-bottom: 20px;
+        }
+
+        .user-icon {
+            font-size: 50px;
+            color: white;
+            background-color: rgba(211, 162, 128, 0.6);
+            /* Color durazno/salmón */
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #f0a08c;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            color: #f0a08c;
+        }
+
+        .options a {
+            color: #f0a08c;
+            text-decoration: none;
+        }
+
+        .options a:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #505050;
+            color: white;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fa-solid fa-user user-icon"></i>
+        </div>
+
+        <form action="procesar_login.php" method="POST">
+            <h2>Iniciar Sesión</h2>
+
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="usuario" placeholder="Usuario" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="contrasena" placeholder="Contraseña" required>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox" name="recordarme"> Recordarme
+                </label>
+                <a href="./recuperar_contrasena.html">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="login-button">INGRESAR</button>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS TULIPAN;
+USE TULIPAN;
+
+-- Tabla de empleados (para login)
+CREATE TABLE empleados (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
+    nombre_completo VARCHAR(100),
+    contrasena_hash VARCHAR(255) NOT NULL,
+    rol ENUM('admin', 'vendedor') DEFAULT 'vendedor',
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de eventos (ocasiones)
+CREATE TABLE eventos (
+    id_evento INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_ocasion VARCHAR(50) UNIQUE NOT NULL,
+    descripcion TEXT
+);
+
+-- Datos base para eventos
+INSERT INTO eventos (tipo_ocasion, descripcion) VALUES
+('cumpleaños', 'Celebración de cumpleaños personal o infantil'),
+('boda', 'Eventos matrimoniales'),
+('aniversario', 'Conmemoraciones especiales'),
+('bautizo', 'Fiestas de bautizo y ceremonias religiosas'),
+('graduación', 'Actos académicos de grado'),
+('corporativo', 'Eventos empresariales o de oficina'),
+('otro', 'Otro tipo de evento personalizado');
+
+-- Tabla de productos
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10,2) NOT NULL,
+    categoria VARCHAR(50),
+    stock INT DEFAULT 0,
+    disponible BOOLEAN DEFAULT TRUE,
+    imagen_url VARCHAR(255),
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de clientes
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_completo VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefono VARCHAR(30),
+    ciudad VARCHAR(50),
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de pedidos
+CREATE TABLE pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_evento INT,
+    fecha_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fecha_evento DATE,
+    mensaje_adicional TEXT,
+    recibe_boletines BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE,
+    FOREIGN KEY (id_evento) REFERENCES eventos(id_evento)
+);
+
+-- Detalle del pedido
+CREATE TABLE detalle_pedido (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL DEFAULT 1,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+-- agregar atributo email para tabla empleados
+ALTER TABLE empleados
+ADD COLUMN email VARCHAR(100) AFTER nombre_completo;
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulipan - Pastelería & Panadería</title>
+    <link rel="stylesheet" href="/assets/css/estilos.css">
+    <link rel="stylesheet" href="/assets/css/contacto.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="form-container">
+                <div class="success-message" id="successMessage">
+                    ¡Gracias! Hemos recibido tu información. Te contactaremos pronto.
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="producto">Producto de Interés</label>
+                        <select id="producto" name="producto">
+                            <option value="">Selecciona un producto</option>
+                            <option value="pasteles">Pasteles Personalizados</option>
+                            <option value="pan">Pan Artesanal</option>
+                            <option value="cupcakes">Cupcakes Gourmet</option>
+                            <option value="croissants">Croissants y Hojaldre</option>
+                            <option value="galletas">Galletas Artesanales</option>
+                            <option value="postres">Postres Especiales</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ocasion">Ocasión Especial</label>
+                        <select id="ocasion" name="ocasion">
+                            <option value="">Selecciona la ocasión</option>
+                            <option value="cumpleanos">Cumpleaños</option>
+                            <option value="boda">Boda</option>
+                            <option value="aniversario">Aniversario</option>
+                            <option value="bautizo">Bautizo</option>
+                            <option value="graduacion">Graduación</option>
+                            <option value="corporativo">Evento Corporativo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha del Evento</label>
+                        <input type="date" id="fecha" name="fecha">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personas">Número de Personas</label>
+                        <input type="number" id="personas" name="personas" min="1" max="500">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje Adicional</label>
+                        <textarea id="mensaje" name="mensaje"
+                            placeholder="Cuéntanos más detalles sobre tu pedido..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Quiero recibir ofertas y novedades por correo electrónico</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos">Acepto los términos y condiciones y la política de privacidad
+                                *</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">Enviar
+                            Información</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div id="footer"></div>
+
+  
+        <script src="/assets/js/menu.js"></script>
+</body>
+
+</html>

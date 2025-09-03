@@ -1,0 +1,486 @@
+/* Reset y tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #fef9f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* Encabezado */
+  header {
+    background: linear-gradient(135deg, #8B4513, #D2691E);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0; /* ← Este es el punto clave */
+  z-index: 1000; /* ← Esto asegura visibilidad encima de todo */
+
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center; /* ← Alinea ícono y texto del logo */
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .logo img {
+    height: 60px; /* o ajusta a 50px, 40px según necesites */
+    width: auto;
+  }
+  
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    color: #ffd9b3;
+  }
+  
+  /* Hero */
+  .hero {
+    background: linear-gradient(rgba(139,69,19,0.6), rgba(210,105,30,0.6)), url('../img/banner_pasteleria.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin: 1rem auto;
+    max-width: 600px;
+  }
+  
+  .btn {
+    background-color: #ff6347;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+    cursor: pointer;
+    
+  }
+  /* cantidad por unidades 21/07/2005*/
+  .cantidad-pastel{
+    background-color: #f3f3f3;
+    color: rgb(26, 26, 26);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    transition: background 0.3s, transform 0.2s;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .btn:hover {
+    background: #ff3b1f;
+    transform: translateY(-2px);
+  }
+  
+  /* Productos */
+  .productos-section {
+    background-color: white;
+    padding: 4rem 0;
+  }
+  
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .producto {
+    background: #fffdfb;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .producto:hover {
+    transform: translateY(-5px);
+  }
+  
+  .producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .producto h3 {
+    font-size: 1.3rem;
+    color: #8B4513;
+    margin: 1rem;
+  }
+  
+  .producto p {
+    margin: 0 1rem 1rem;
+    color: #555;
+  }
+  
+  .producto .precio {
+    font-weight: bold;
+    color: #ff6347;
+    margin: 0 1rem 1rem;
+  }
+
+  /*para poner las imagenes de los productos del mismo tamaño*/
+  .card-img-top {
+  height: 250px; /* o el alto que prefieras */
+  object-fit: cover;
+  width: 100%;
+}
+  
+  /* Pie de página */
+ /* Footer */
+ footer {
+  background: #8B4513;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: auto;
+}
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 0.8rem;
+  color: #FFE4B5;
+  font-size: 1.3rem;
+}
+
+.footer-section p {
+  margin: 0.3rem 0;
+}
+
+.footer-icon {
+  width: 50px;
+  margin-bottom: 0.5rem;
+}
+
+/* Derechos reservados */
+.footer-legal {
+  text-align: center;
+  font-size: 0.95rem;
+}
+  .header-content {
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    align-items: center;
+  }
+
+  
+  /* Carrusel */
+.carrusel {
+  position: relative;
+  max-width: 100%;
+  margin: 1rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.carrusel-container {
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  animation: fade 0.8s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+/* Asegura que las imágenes del carrusel llenen el contenedor sin distorsionarse */
+.carousel-img {
+  width: 100%;
+  height: 500px; /* ajusta según tu diseño */
+  object-fit: cover;
+}
+
+/* Botones de navegación */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #8B4513;
+  font-size: 2rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 5;
+  transition: background 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+  background-color: #fff;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+/* Animación de entrada */
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide img {
+    height: 250px;
+  }
+
+  .prev, .next {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  
+}
+/* Nosotros */
+.nosotros {
+  padding: 4rem 1rem;
+  background-color: #fffdfb;
+}
+
+.nosotros-bloque {
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.nosotros h2 {
+  color: #8B4513;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.nosotros p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.valores-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.valores-lista li {
+  background-color: #fef1e6;
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #8B4513;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nosotros h2 {
+    font-size: 1.5rem;
+  }
+
+  .nosotros p {
+    font-size: 1rem;
+  }
+
+  .valores-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ========== MENÚ HAMBURGUESA ========== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* ========== RESPONSIVE HEADER ========== */
+@media (max-width: 768px) {
+  .header-content {
+      position: relative;
+  }
+
+  .logo {
+      font-size: 1.2rem;
+  }
+
+  .logo img {
+      height: 45px;
+  }
+
+  /* Mostrar hamburguesa en móvil */
+  .menu-toggle {
+      display: flex;
+  }
+
+  /* Ocultar navegación desktop en móvil */
+  nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #8B4513, #D2691E);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transform: translateY(-20px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+  }
+
+  nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+  }
+
+  nav ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 0;
+  }
+
+  nav li {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  nav li:last-child {
+      border-bottom: none;
+  }
+
+  nav a {
+      display: block;
+      padding: 1rem 1.5rem;
+      width: 100%;
+  }
+
+  /* Animación hamburguesa cuando está activa */
+  .menu-toggle.active .hamburger:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-toggle.active .hamburger:nth-child(2) {
+      opacity: 0;
+  }
+
+  .menu-toggle.active .hamburger:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+      padding: 0 1rem;
+  }
+
+  .logo {
+      font-size: 1rem;
+  }
+
+  .logo img {
+      height: 40px;
+  }
+}

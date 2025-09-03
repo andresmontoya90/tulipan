@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="assets/css/estilos.css" />
+        <title>Recuperar contraseña</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container header-content">
+                <div class="logo"><a href="/index.html"><img src="/assets/imagen/tulipan.png" alt="Tulipan"></a>
+                        <h3>Tulipan</h3>
+                </div>     
+            </div>
+        </header>
+    <h2>¿Olvidaste tu contraseña?</h2>
+    <form action="php/enviar_recuperacion.php" method="POST">
+        <input type="email" name="correo" placeholder="Ingresa tu correo registrado" required>
+        <button type="submit">Enviar enlace de recuperación</button>
+    </form>
+    </body>
+</html>
