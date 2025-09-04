@@ -237,7 +237,9 @@
             background: #8B4513;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            margin-top: 50px;
+            margin-bottom:  50px
+            padding: 1rem ;
         }
 
         .footer-content {
@@ -537,14 +539,14 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.8);
-  color: #824316;
+  color: #8B4513;
   font-size: 2rem;
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
-  transition: background 0.9s ease;
+  transition: background 0.3s ease;
 }
 
 .prev:hover, .next:hover {
@@ -556,7 +558,7 @@
 }
 
 .next {
-  right: 20px;
+  right: 15px;
 }
 
 /* Animación de entrada */
@@ -566,13 +568,13 @@
 }
 
 /* Responsive */
-@media (max-width: 798px) {
+@media (max-width: 768px) {
   .slide img {
     height: 250px;
   }
 
   .prev, .next {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     padding: 0.4rem 0.8rem;
   }
 }
